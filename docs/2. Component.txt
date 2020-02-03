@@ -1,0 +1,67 @@
+Ref:
+    - 
+
+----------------------------------------------------------------------------------------------------
+    Introducing JSX
+----------------------------------------------------------------------------------------------------
++ React embraces the fact that rendering logic is inherently coupled with other UI logic: how events
+are handled, how the state changes over time, and how the data is prepared for display.
+
++ JSX stands for JavaScript XML, it is a syntax extension to JavaScript. It converts HTML tags into
+react elements which allows us to write HTML elements in JavaScript without any createElement() and
+appendChild() methods (render them to DOM).
+
++ JSX is NOT HTML but it looks a lot like it. Differences can be seen when looking closely though
+(for example className in JSX vs class in "normal HTML"). 
+
+
+----------------------------------------------------------------------------------------------------
+    Component in React
+----------------------------------------------------------------------------------------------------
++ Components are the core building block of React apps, they let you split the UI into independent,
+reusable pieces, and think about each piece in isolation.
+
++ A typical React app could be depicted as a component tree - having one root component ("App") and
+then an potentially infinite amount of nested child components.
+
++ Each component needs to return/ render some JSX code which React will render it to HTML code to
+the real DOM in the end.
+
++ There are 2 ways to create component in React:
+    - Functional components: also referred as "presentational", "dumb" or "stateless" components
+        import React from 'react';
+        const functionalComponent = () => { 
+            return (
+                <div>Hi there</div>
+                <div>I am functional component</div>
+            )
+        }
+        export default functionalComponent;
+    
+    - Class-based components: also referred as "containers", "smart" or "stateful" components
+        import React, {Component} from 'react';
+        class classComponent extends Component { 
+            render () { 
+                return (
+                    <div>Hi there</div>
+                    <div>I am class component</div> 
+                )
+            } 
+        }
+        export default classComponent;
+
+
+----------------------------------------------------------------------------------------------------
+    String interpolation
+----------------------------------------------------------------------------------------------------
++ Sting Interpolation allows the user to bind a dynamic value to a UI element. Interpolation is 
+identified with an expression in the middle of curly brace.
+    import React from 'react';
+        const name = 'Danny';
+        const functionalComponent = () => { 
+            return (
+                <div>Hi there, I am { name }</div>
+                <div>Your number is { Math.random() } </div>
+            )
+        }
+    export default functionalComponent;

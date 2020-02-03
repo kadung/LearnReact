@@ -1,0 +1,37 @@
+Ref:
+    - 
+
+----------------------------------------------------------------------------------------------------
+    child directives or components to share data with its parent.
+----------------------------------------------------------------------------------------------------
++ Components can refer to other components in their output.
+
++ All React components must act like pure functions with respect to their props.
+
++ Example:
+    // Parent component
+    import React, {Component} from 'react';
+    import functionalPerson from 'functionalPersonFile";
+    import classPerson from 'classPersonFile";
+    class App extends Component { 
+        render () { 
+            return (
+                <Person name="D1" age="11" />
+                <Person name="D2" age="22"> This is content projection text </Person>
+            )
+        }
+    export default App;
+
+    // Child component 1
+    const functionalPerson = (props) => { 
+        return (
+            <div>
+                // {props.name}  => {this.props.name} if child component is class based
+                <p>Hi {props.name}, your age is {props.age}</p>
+                // Child property (content projection)
+                // It will display: This is content projection text
+                <p>{props.children}</p>     
+            </div>
+        )
+    }
+

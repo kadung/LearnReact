@@ -1,0 +1,38 @@
+Ref:
+    - https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm
+    - https://create-react-app.dev/docs/folder-structure/
+
+---------------------------------------------------------------------------------------------------
+    Create react app
+---------------------------------------------------------------------------------------------------
++ Create React App is an officially package which help to create single-page React applications. It
+offers a modern build setup with no configuration.
+
++ npx is a a npm package runner which executes Node packages without locally installed.
+
++ Create a new react applicaiton:
+    npm install -g create-react-app
+    create-react-app my-app
+
++ But with npx, we can use the CLI directly:
+    npx create-react-app my-app
+
+
+---------------------------------------------------------------------------------------------------
+    Folder structure
+---------------------------------------------------------------------------------------------------
++ For the project to build, below files must exist with exact filenames. You can delete or rename
+the other files.
+    - public/index.html is the page template;
+    - src/index.js is the JavaScript entry point.
+
+
+---------------------------------------------------------------------------------------------------
+    Available Scripts
+---------------------------------------------------------------------------------------------------
++ npm start: Runs the app in the development mode (Open http://localhost:3000 to view in browser).
+The page will reload if you make edits. You will also see any lint errors in the console.
+
++ npm test: Launches the test runner in the interactive watch mode. 
+
++ npm run build: Builds the app for production to the build folder.
