@@ -54,7 +54,7 @@ the real DOM in the end.
 ----------------------------------------------------------------------------------------------------
     String interpolation
 ----------------------------------------------------------------------------------------------------
-+ Sting Interpolation allows the user to bind a dynamic value to a UI element. Interpolation is 
++ Sting interpolation allows the user to bind a dynamic value to a UI element. Interpolation is 
 identified with an expression in the middle of curly brace.
     import React from 'react';
         const name = 'Danny';
@@ -65,3 +65,9 @@ identified with an expression in the middle of curly brace.
             )
         }
     export default functionalComponent;
+
+
+----------------------------------------------------------------------------------------------------
+    Handling Events with Methods
+----------------------------------------------------------------------------------------------------
++ 

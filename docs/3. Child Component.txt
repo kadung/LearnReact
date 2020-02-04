@@ -2,11 +2,14 @@ Ref:
     - 
 
 ----------------------------------------------------------------------------------------------------
-    child directives or components to share data with its parent.
+    Parent component shares datas to child component
 ----------------------------------------------------------------------------------------------------
-+ Components can refer to other components in their output.
++ Child component can receive data to parent component via:
+    - Component attributes
+    - Content projection
 
-+ All React components must act like pure functions with respect to their props.
++ Props object is read only so Whether you declare a component as a function or a class, it must 
+never modify its own props (All React components must act like pure functions).
 
 + Example:
     // Parent component
@@ -28,10 +31,16 @@ Ref:
             <div>
                 // {props.name}  => {this.props.name} if child component is class based
                 <p>Hi {props.name}, your age is {props.age}</p>
+
                 // Child property (content projection)
                 // It will display: This is content projection text
                 <p>{props.children}</p>     
             </div>
         )
     }
+
+
+----------------------------------------------------------------------------------------------------
+    Passing Method References Between Components
+----------------------------------------------------------------------------------------------------
 
