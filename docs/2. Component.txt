@@ -68,6 +68,30 @@ identified with an expression in the middle of curly brace.
 
 
 ----------------------------------------------------------------------------------------------------
+    Component state
+----------------------------------------------------------------------------------------------------
++ React components has a built-in state object, the state object is where you store property values
+that belongs to the component. When the state object changes, the component re-renders.
+
++ Only class-based components can define and use state object, react hooks is used for functional
+component.
+
++ Example:
+    // state object can only be accessed in class-based components
+    class NewPost extends Component { 
+        state = {
+            counter: 1
+        };  
+ 
+        render () {
+            return (
+                <div>{this.state.counter}</div>
+            );
+        }
+    }
+ 
+
+----------------------------------------------------------------------------------------------------
     Handling Events with Methods
 ----------------------------------------------------------------------------------------------------
 + 
