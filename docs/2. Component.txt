@@ -65,33 +65,114 @@ identified with an expression in the middle of curly brace.
             )
         }
     export default functionalComponent;
+ 
+
+----------------------------------------------------------------------------------------------------
+    Handling Events with Methods
+----------------------------------------------------------------------------------------------------
++ Handling events with React is similar to handling events on DOM elements. There are some syntactic
+differences:
+    - React events are named using camelCase, rather than lowercase.
+    - With JSX you pass a function as the event handler, rather than a string.
+    - Example:
+        const functionalComponent = () => { 
+            printLog = () => {
+                console.log("Printing log");
+            }
+
+            return (
+                // event handler in React
+                <button onClick={printLog}>
+                    Print console log
+                </button>
+            )
+        }
+        
++ List of supported events here: https://reactjs.org/docs/events.html#supported-events
 
 
 ----------------------------------------------------------------------------------------------------
     Component state
 ----------------------------------------------------------------------------------------------------
 + React components has a built-in state object, the state object is where you store property values
-that belongs to the component. When the state object changes, the component re-renders.
-
-+ Only class-based components can define and use state object, react hooks is used for functional
+that belongs to the component. When the state of a component is changed, react will re-renders the
 component.
 
-+ Example:
-    // state object can only be accessed in class-based components
++ Only class-based components can define and use state object:
     class NewPost extends Component { 
         state = {
-            counter: 1
-        };  
+            name: 'Dung'
+        };
+
+        changeName = () => {
+            // setState() will merge its new object to original state object
+            this.setState({
+                name: 'Chilli'
+            })
+        }
  
         render () {
             return (
                 <div>{this.state.counter}</div>
+                <button onClick={changeName}>Change Name</button>
             );
         }
     }
- 
+
 
 ----------------------------------------------------------------------------------------------------
-    Handling Events with Methods
+    Parent component shares datas to child component
 ----------------------------------------------------------------------------------------------------
-+ 
++ Child component can receive data from parent component via:
+    - Component attributes
+    - Content projection
+
++ Child component can access received data via props object (short for “properties”). Props is read
+only object so whether you declare a component as a function or a class, it must never modify its
+own props (All React components must act like pure functions).
+
++ Example:
+    // Parent component
+    import React, {Component} from 'react';
+    import functionalPerson from 'functionalPersonFile";
+    import classPerson from 'classPersonFile";
+    class App extends Component { 
+        render () { 
+            return (
+                <Person name="D1" age="11" />
+                <Person name="D2" age="22"> This is content projection text </Person>
+            )
+        }
+    export default App;
+
+    // Child component 1
+    const functionalPerson = (props) => { 
+        return (
+            <div>
+                // {props.name}  => {this.props.name} if child component is class based
+                <p>Hi {props.name}, your age is {props.age}</p>
+
+                // Child property (content projection)
+                // It will display: This is content projection text
+                <p>{props.children}</p>     
+            </div>
+        )
+    }
+
+
+----------------------------------------------------------------------------------------------------
+    Passing Method References Between Components
+----------------------------------------------------------------------------------------------------
++
+
+
+----------------------------------------------------------------------------------------------------
+    Two way binding
+----------------------------------------------------------------------------------------------------
++
+
+
+----------------------------------------------------------------------------------------------------
+    Add styles
+----------------------------------------------------------------------------------------------------
++
