@@ -121,7 +121,7 @@ component.
 
 
 ----------------------------------------------------------------------------------------------------
-    Parent component shares datas to child component
+    Parent component interacts with child component
 ----------------------------------------------------------------------------------------------------
 + Child component can receive data from parent component via:
     - Component attributes
@@ -136,16 +136,36 @@ own props (All React components must act like pure functions).
     import React, {Component} from 'react';
     import functionalPerson from 'functionalPersonFile";
     import classPerson from 'classPersonFile";
-    class App extends Component { 
+    class App extends Component {
+        state = {
+            name: 'Dung',
+            age: '30'
+        };
+
+        changeName = (newName) => {
+            this.setState({
+                name: newName
+            })
+        }
+
+        childChangeNameHandler = (event) => {
+            this.setState({
+                name: event.target.value
+            })
+        }
+
         render () { 
             return (
-                <Person name="D1" age="11" />
-                <Person name="D2" age="22"> This is content projection text </Person>
+                <Person 
+                    // Pass datas to child
+                    name={this.state.name} age={this.state.age} 
+                    // Pass an action to child
+                    click={this.changeName.bind(this, Chilli)} />
             )
         }
     export default App;
 
-    // Child component 1
+    // Child component
     const functionalPerson = (props) => { 
         return (
             <div>
@@ -154,25 +174,48 @@ own props (All React components must act like pure functions).
 
                 // Child property (content projection)
                 // It will display: This is content projection text
-                <p>{props.children}</p>     
+                <p>{props.children}</p>
+
+                // Passing method references between components
+                <button onClick={props.click}>
+
+                 // Pass data back to parent component
+                 <input type="text" value={props.name}
+                    onChange={props.childChangeNameHandler}/>
             </div>
         )
     }
 
 
 ----------------------------------------------------------------------------------------------------
-    Passing Method References Between Components
-----------------------------------------------------------------------------------------------------
-+
-
-
-----------------------------------------------------------------------------------------------------
-    Two way binding
-----------------------------------------------------------------------------------------------------
-+
-
-
-----------------------------------------------------------------------------------------------------
     Add styles
 ----------------------------------------------------------------------------------------------------
-+
++ Use stylesheet:
+    // highlight.css
+    .highlight {
+        text-align: center;
+        color: red;
+    }
+
+    // Component file
+    import React from 'react';
+    import './highlight.css';
+    const functionalComponent = () => { 
+        return (
+            <div class="highlight">Hi there</div>
+        )
+    }
+    export default functionalComponent;
+
++ In-line styles:
+    import React from 'react';
+    const functionalComponent = () => { 
+        const highlight = {
+            text-align: center;
+             color: red;
+        }
+        return (
+            <div style={style}>Hi there</div>
+        )
+    }
+    export default functionalComponent;
