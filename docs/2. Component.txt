@@ -1,6 +1,3 @@
-Ref:
-    - 
-
 ----------------------------------------------------------------------------------------------------
     Introducing JSX
 ----------------------------------------------------------------------------------------------------
@@ -57,13 +54,13 @@ the real DOM in the end.
 + Sting interpolation allows the user to bind a dynamic value to a UI element. Interpolation is 
 identified with an expression in the middle of curly brace.
     import React from 'react';
-        const name = 'Danny';
-        const functionalComponent = () => { 
-            return (
-                <div>Hi there, I am { name }</div>
-                <div>Your number is { Math.random() } </div>
-            )
-        }
+    const name = 'Danny';
+    const functionalComponent = () => { 
+        return (
+            <div>Hi there, I am { name }</div>
+            <div>Your number is { Math.random() } </div>
+        )
+    }
     export default functionalComponent;
  
 
@@ -160,7 +157,8 @@ own props (All React components must act like pure functions).
                     // Pass datas to child
                     name={this.state.name} age={this.state.age} 
                     // Pass an action to child
-                    click={this.changeName.bind(this, Chilli)} />
+                    click={this.changeName.bind(this, Chilli)} 
+                    changed={childChangeNameHandler}/>
             )
         }
     export default App;
@@ -176,12 +174,12 @@ own props (All React components must act like pure functions).
                 // It will display: This is content projection text
                 <p>{props.children}</p>
 
-                // Passing method references between components
+                // Map event to handler of parent component
                 <button onClick={props.click}>
 
-                 // Pass data back to parent component
-                 <input type="text" value={props.name}
-                    onChange={props.childChangeNameHandler}/>
+                // Two way binding with parent state
+                <input type="text" value={props.name}
+                    onChange={props.changed}/>
             </div>
         )
     }
@@ -212,7 +210,7 @@ own props (All React components must act like pure functions).
     const functionalComponent = () => { 
         const highlight = {
             text-align: center;
-             color: red;
+            color: red;
         }
         return (
             <div style={style}>Hi there</div>
