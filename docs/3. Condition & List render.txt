@@ -1,8 +1,43 @@
 ----------------------------------------------------------------------------------------------------
     Conditional rendering
 ----------------------------------------------------------------------------------------------------
-+ 
++ Conditional rendering in React works the same way conditions work in JavaScript. So we can use:
+    - If statement
+    - && operator
+    - Ternary expression
 
++ Example:
+    import React, {Component} from 'react';
+    class classComponent extends Component { 
+        state = {
+            showUser: true
+        }
+        tongle = () => {
+            this.setState({
+                showUser: !this.state.showUser
+            })
+        }
+        render () {
+            if (this.state.showUser) {
+                user = (
+                    <p>I am user</p>
+                );
+            }
+            
+            return (
+                <div>
+                    <button onClick={this.tongle}> Show/Hide </button>
+                    // Recommend way
+                    {user}
+                    // Ternary expression
+                    {this.state.showUser ? <p>True ternary</p> : <p> False ternary</p>}
+                    // And operator
+                    {this.state.showUser && <p>And operator condition</p>}
+                </div>
+            )
+        } 
+    }
+    export default classComponent;
 
 
 ----------------------------------------------------------------------------------------------------
