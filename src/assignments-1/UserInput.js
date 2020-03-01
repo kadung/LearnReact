@@ -11,7 +11,6 @@ const userInput = (props) => {
                 <button onClick={props.click}>Change name to Handsome</button>
             </div>
         </div>
-        
     )
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import UserOutput from './UserOutput';
 import UserInput from './UserInput';
 
-class UserApp extends React.Component {
+class Assignment1 extends React.Component {
     state = {
       name: "Chilli"
     }
@@ -34,4 +34,4 @@ class UserApp extends React.Component {
     }  
   }
   
-  export default UserApp;
+  export default Assignment1;

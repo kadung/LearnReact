@@ -1,0 +1,6 @@
+- Create an input field (in App component) with a change listener which outputs the length of the entered text
+- Create a new component (Validation component) which receives a text length as a prop
+- Inside Validation component, either outputs "Text too short" or "Text long enough" depends on the text length
+- Create another component (Char component) and style it as inline box
+- Render a list of Char components where each Char component receives a different leter of entered text as a prop
+- When you click a Char component, it shoud be removed in entered text
