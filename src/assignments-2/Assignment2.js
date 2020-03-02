@@ -1,15 +1,18 @@
 import React from 'react';
 import Validation from './Validation';
+import CharList from './CharList';
 
 class Assignment2 extends React.Component {
     state = {
-      length: 0
+      text: '',
+      length: 0,
     }
   
     textChange = (event) => {
-      const textLength = event.target.value.length;
+      const value = event.target.value;
       this.setState({
-        length: textLength
+        text: value,
+        length: value.length
       })
     }
   
@@ -22,6 +25,9 @@ class Assignment2 extends React.Component {
           </div>
           <div>
             <Validation textLength={this.state.length}></Validation>
+          </div>
+          <div>
+            <CharList text={this.state.text}></CharList>
           </div>
         </div>
       );

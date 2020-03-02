@@ -18,20 +18,19 @@
             })
         }
         render () {
+            let user;
             if (this.state.showUser) {
-                user = (
-                    <p>I am user</p>
-                );
+                user = (<p>I am user</p>);
             }
             
             return (
                 <div>
                     <button onClick={this.tongle}> Show/Hide </button>
-                    // Recommend way
+                    {/* // Recommend way */}
                     {user}
-                    // Ternary expression
+                    {/* // Ternary expression */}
                     {this.state.showUser ? <p>True ternary</p> : <p> False ternary</p>}
-                    // And operator
+                    {/* // And operator */}
                     {this.state.showUser && <p>And operator condition</p>}
                 </div>
             )
