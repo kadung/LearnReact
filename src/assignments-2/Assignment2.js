@@ -15,19 +15,33 @@ class Assignment2 extends React.Component {
         length: value.length
       })
     }
+
+    deleteHandler = (index) => {
+      const oldText = this.state.text;
+      const newTest = oldText.substr(0, index) + oldText.substr(index+1, oldText.length);
+      this.setState({
+        text: newTest,
+        length: newTest.length
+      })
+    }
   
     render() {
       return (
         <div className="App">
           <div>
-            <input type="text" onChange={this.textChange}></input>
+            <input 
+              type="text"
+              value={this.state.text}
+              onChange={this.textChange}/>
             <p>Length of text is {this.state.length}</p>
           </div>
           <div>
-            <Validation textLength={this.state.length}></Validation>
+            <Validation textLength={this.state.length}/>
           </div>
           <div>
-            <CharList text={this.state.text}></CharList>
+            <CharList 
+              text={this.state.text}
+              deleted={this.deleteHandler}/>
           </div>
         </div>
       );

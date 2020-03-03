@@ -7,17 +7,26 @@ const CharList = (props) => {
         height: '100px',
         padding: '10px',
         border: '1px solid blue',
-        'margin-right': '10px'
+        marginRight: '10px'
     }
 
-    const text = props.text;
-    const listChar = text.map((char) => {
-        <span style={style}>
+    const chars = props.text.split('');
+    const charsList = chars.map((char, index) =>
+        <span 
+          style={style} 
+          key={char+index}
+          onClick={() => props.deleted(index)}>
             {char}
         </span>
-    })
+    )
 
-    return ({listChar})
+    
+    
+    return (
+        <div> 
+            {charsList}
+        </div>      
+    )
 }
 
 export default CharList;

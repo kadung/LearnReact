@@ -42,8 +42,30 @@
 ----------------------------------------------------------------------------------------------------
     List rendering
 ----------------------------------------------------------------------------------------------------
-+ Rendering multiple components using the JavaScript map() function.
++ Rendering multiple components using any JavaScript loop function.
 
 + Key attribute should be provided when creating lists of elements, it help React identify which
 items have changed, are added, or are removed. Keys used within arrays should be unique among their
 siblings, however they don’t need to be globally unique.
+
++ Example:
+    // Child Component
+    function NumberList(props) {
+        const numbers = props.numbers;
+        const listItems = numbers.map((number) =>
+            <li key={number.toString()}>
+                {number}
+            </li>
+        );
+        return (
+            <ul>{listItems}</ul>
+        );
+    }
+
+    // Parent component
+    import React, {Component} from 'react';
+    class classComponent extends Component {
+        const numbers = [1, 2, 3, 4, 5];
+        render () {
+            <NumberList numbers={numbers} />
+        }
