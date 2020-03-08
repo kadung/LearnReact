@@ -1,0 +1,31 @@
+----------------------------------------------------------------------------------------------------
+    Styling with JS library
+----------------------------------------------------------------------------------------------------
++ Radium: https://github.com/FormidableLabs/radium
+
++ Style component: https://styled-components.com/
+
+
+----------------------------------------------------------------------------------------------------
+    CSS Modules (https://github.com/css-modules/css-modules)
+----------------------------------------------------------------------------------------------------
++ CSS Modules are a concept where you can write normal CSS code and make sure that it only applies
+to a given component. 
+
++ By simply automatically generate unique CSS class names for you and by importing a JS object and
+assigning classes from there, you use these dynamically generated, unique names. So the imported JS
+object simply exposes some properties which hold the generated CSS class names as values.
+
++ Example below, classes.Post refers to an automatically generated class name which is unique across
+the application. You also can't use it accidentally in other components because you don't know the
+generated string and you can only access it through the classes object. 
+    // Post.css File
+    .Post {
+        color: red;
+    }
+
+    // Post Component File
+    import classes from './Post.css';
+    const post = () => (
+        <div className={classes.Post}>...</div>
+    );
